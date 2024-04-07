@@ -18,6 +18,7 @@
 #'
 #' @importFrom ggplot2 ggplot aes geom_abline geom_point theme_bw theme
 #'     element_text xlab ylab geom_label
+#' @importFrom rlang .data
 #' @import dplyr
 #'
 #' @return A ggplot object
@@ -57,7 +58,9 @@ plotAlevinBarcodeCollapse <- function(cbTable,
         ggplot2::theme(axis.title = ggplot2::element_text(size = 12)) +
         ggplot2::xlab("Observed cell barcode frequency") +
         ggplot2::ylab("Cell barcode frequency, following reassignment") +
-        ggplot2::geom_label(x = -Inf, y = Inf, hjust = -0.05, vjust = 1.3,
-                            aes(label = paste0("Mean read gain per CB: ",
-                                               mrg, "%")))
+        ggplot2::geom_label(data = data.frame(x = -Inf, y = Inf),
+                            aes(x = .data$x, y = .data$y,
+                                label = paste0("Mean read gain per CB: ",
+                                               mrg, "%")),
+                            hjust = -0.05, vjust = 1.3)
 }

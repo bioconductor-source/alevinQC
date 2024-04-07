@@ -1,3 +1,7 @@
+# alevinQC 1.19.3
+
+* Minor fixes to adapt to changes in ggplot2
+
 # alevinQC 1.19.2
 
 * Add 'Close app' button to close the shiny application and return data
